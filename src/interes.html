@@ -24,9 +24,50 @@
 
 <body>
     <div class="container py-4 px-3 mx-auto">
-        <div class="card" style="width: 18rem;">
+        <div class="card col-12">
             <div class="card-body">
                 <h5 class="card-title">INTERESES</h5>
+                <div class="col-12 d-flex">
+                    <div class="col-6">
+                        <strong>
+                            <a>interes simple</a>
+                        </strong>
+                        <br>
+                        <label class="form-label">Ingrese el Valor del prestamo</label>
+                        <input id="ValorPrestamo" class="form-control" type="number" pattern="[0-9]+">
+                        <label class="form-label">Ingrese el porcentaje</label>
+                        <input id="portentaje" class="form-control" type="number" pattern="[0-9]+">
+                        <label class="form-label">Ingrese el el tiempo</label>
+                        <input id="tiempo" class="form-control" type="number" pattern="[0-9]+">
+
+                        <label class="form-label">Este es el valor:</label>
+                        <p class="form-label" id="resultado"></p>
+                        <div class="col-12">
+                            <button type="button" class="btn btn-primary"
+                                onclick="calcularInteresSimple() ">Calcular</button>
+                        </div>
+                    </div>
+                    <div class="col-6 ms-2">
+
+                        <strong><a>Interes compuesto</a></strong> <br>
+
+                        <label class="form-label">Ingrese Valor</label>
+                        <input class="form-control" id="valorInteresCompuesto" type="number">
+                        <label class="form-label">Ingrese la tasa de interes</label>
+                        <input class="form-control" id="tasaCompuesta" type="number">
+                        <label class="form-label">Ingrese el tiempo</label>
+                        <input class="form-control" id="time" type="number">
+                        <label class="form-label">Este es el valor:</label>
+                        <p class="form-label" id="resultadoCompuesto"></p>
+                        <div class="col-12">
+                            <button type="button" class="btn btn-primary"
+                                onclick="calcularInteresCompuesto() ">Calcular</button>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                    
+                
                 <ul class="nav">
                     <li class="nav-item">
                         <a href="#">interes simple</a>
@@ -62,6 +103,7 @@
                     </div>
                     <br><br>
                 </ul>
+                -->
             </div>
         </div>
     </div>
