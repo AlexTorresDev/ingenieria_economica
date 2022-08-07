@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<script type="module" src="./js/descuentoSimple.js"></script>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap w/ Vite</title>
+    </head>
+    <body>
+        <div class="container py-4 px-3 mx-auto">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Descuento simple</h5>
+                  <p class="card-text">Ingrese los valores para calcular: </p>
+                  <label for="valorLiquido">Valor Liquido:</label>
+                  <input type="number" id="valorLiquido" name="valorLiquido">
+                  <br>
+                  <label for="valorNominal">Valor Nominal:</label>
+                  <input type="number" id="valorNominal" name="valorNominal">
+                  <br>
+                  <label for="porcentaje">Porcentaje:</label>
+                  <input type="number" id="porcentaje" name="porcentaje">
+                  <br>
+                  <label for="dias">Dias:</label>
+                  <br>
+                  <input type="number" id="dias" name="dias">
+                  <br><br>
+                  <input id="calcu" type="button" value="Calcular" onclick="calcular()">
+                  <br><br>
+                  <label for="resultado" class="form-label">Este es el valor: </label>
+                  <p id="resultado"></p>
+                </div>
+              </div>
+        </div>
+    </body>
+</html>
