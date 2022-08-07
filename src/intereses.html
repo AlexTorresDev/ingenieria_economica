@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Interes</title>
+    <title>Interes simple e interes compuesto</title>
+    <style>
+        .form1 {
+            width: 45%;
+        }
+
+        .form2 {
+            width: 45%;
+        }
+
+        .form-container {
+            margin: 10%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    </style>
 </head>
 
 <body>
@@ -50,50 +66,13 @@
                         </div>
                     </div>
                 </div>
-                <!--
-                    
-                
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">interes simple</a>
-                    </li>
-                    <label>Ingrese el Valor del prestamo</label>
-                    <input id="ValorPrestamo" type="number" pattern="[0-9]+">
-                    <label>Ingrese el porcentaje</label>
-                    <input id="portentaje" type="number" pattern="[0-9]+">
-                    <label>Ingrese el el tiempo</label>
-                    <input id="tiempo" type="number" pattern="[0-9]+">
 
-                    <label>Este es el valor:</label>
-                    <p id="resultado"></p>
-                    <div class="col-12">
-                        <button class="btn primary" onclick="calcularInteresSimple() ">Calcular</button>
-                    </div>
-                    <br><br>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Interes compuesto</a>
-                    </li>
-                    <label>Ingrese Valor</label>
-                    <input id="valorInteresCompuesto" type="number">
-                    <label>Ingrese la tasa de interes</label>
-                    <input id="tasaCompuesta" type="number">
-                    <label>Ingrese el tiempo</label>
-                    <input id="time" type="number">
-                    <label>Este es el valor:</label>
-                    <p id="resultadoCompuesto"></p>
-                    <div class="col-12">
-                        <button class="btn primary" onclick="calcularInteresCompuesto() ">Calcular</button>
-                    </div>
-                    <br><br>
-                </ul>
-                -->
             </div>
+
         </div>
     </div>
-    <script type="module" src="./js/main.js">
-    </script>
-    <script type="text/javascript" src="./js/interes.js">
-    </script>
+    <script type="module" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/interes.js"></script>
 </body>
 
 </html>
