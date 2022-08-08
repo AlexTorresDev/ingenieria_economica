@@ -11,12 +11,15 @@ form.addEventListener("submit", function (event) {
     let interes = parseFloat(form.interes.value);
     let modalidadInteres = form.modalidadInteres.value;
 
+    const isValid = validateFields(valorDeuda, numPagos, modalidadPago, interes, modalidadInteres);
+
+    if (!isValid) return;
+
     let realInterest = convertInterest(modalidadPago, interes, modalidadInteres);
 
     let cuota = calculateFee(valorDeuda, realInterest, numPagos);
 
     let table = document.getElementById("tabla-amortizacion");
-    let tbody = table.getElementsByTagName("tbody")[0];
 
     let periodo = 0;
     let saldo = valorDeuda;
@@ -24,32 +27,58 @@ form.addEventListener("submit", function (event) {
     let valorCuota = 0;
     let amortizacion = 0;
 
+    table.innerHTML = "";
+
+    table.insertAdjacentHTML('beforeend',
+        `<thead>
+            <tr>
+                <th scope="col">Periodo</th>
+                <th scope="col">Saldo</th>
+                <th scope="col">Interes</th>
+                <th scope="col">Cuota</th>
+                <th scope="col">Amortización</th>
+            </tr>
+        </thead><tbody>`
+    );
+
     while (periodo <= numPagos) {
-        tbody.insertAdjacentHTML('beforeend', '<tr><th scope="row">' + periodo + '</th><td>' + saldo + '</td><td>' + valorInteres + '</td><td>' + valorCuota + '</td><td>' + amortizacion + '</td></tr>');
-        valorInteres = parseFloat((saldo * realInterest).toFixed(3));
+        table.insertAdjacentHTML('beforeend', '<tr><th scope="row">'
+            + periodo + '</th><td>'
+            + convertNumber(saldo) + '</td><td>'
+            + convertNumber(valorInteres) + '</td><td>'
+            + convertNumber(valorCuota) + '</td><td>'
+            + convertNumber(amortizacion) + '</td></tr>');
+
+        valorInteres = saldo * realInterest;
 
         if (saldo < valorCuota) {
-            valorCuota = parseFloat((saldo + valorInteres).toFixed(3));
-            amortizacion = parseFloat((valorCuota - valorInteres).toFixed(3));
-            saldo -= amortizacion;
+            valorCuota = saldo + valorInteres;
         } else {
             if (periodo == 0) valorCuota = cuota;
-            amortizacion = parseFloat((valorCuota - valorInteres).toFixed(3));
-            saldo -= amortizacion;
         }
 
+        amortizacion = valorCuota - valorInteres;
+        saldo -= amortizacion;
         periodo++;
     }
+
+    table.insertAdjacentHTML('beforeend', '</tbody>');
 });
 
+function validateFields(valorDeuda, numPagos, modalidadPago, interes, modalidadInteres) {
+    return valorDeuda > 0 && numPagos > 0 && modalidadPago != "" && interes > 0 && modalidadInteres != "" && (interes < 1 && interes >= 100);
+}
+
 function convertInterest(modalidadPago, interest, modalidadInteres) {
-    const val = interestJ.filter(k => k.name === modalidadInteres);
+    let val = interestJ.filter(k => k.name === modalidadInteres);
 
     if (val.length > 0) {
         interest = (interest / val[0].value) / 100;
+    } else {
+        interest /= 100;
     }
 
-    if (modalidadPago != val[0].value) {
+    if (val.length > 0 && modalidadPago != val[0].value) {
         let n = 12;
         let m = 12;
 
@@ -84,11 +113,15 @@ function convertInterest(modalidadPago, interest, modalidadInteres) {
 }
 
 function calculateFee(valorDeuda, interes, numeroPagos) {
-    // A = valorDeuda/((1-(1+interes))^(-numPagos)/interes)
     let bottom = (1 - Math.pow(1 + interes, (numeroPagos * -1))) / interes;
     let valorCuota = valorDeuda / bottom;
 
     return parseFloat(valorCuota.toFixed(3));
+}
+
+function convertNumber(number) {
+    let num = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(number);
+    return num;
 }
 
 let interestJ = [
