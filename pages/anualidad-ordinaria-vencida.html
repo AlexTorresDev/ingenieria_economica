@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interes</title>
+  <script type="module" crossorigin src="/assets/main.722ffefe.js"></script>
+  <link rel="stylesheet" href="/assets/main.d3741266.css">
+</head>
+
+<body>
+    <div class="container py-4 px-3 mx-auto">
+        <div class="card col-12">
+            <div class="card-body">
+                <h5 class="card-title">ANUALIDAD</h5>
+                <div class="col-12 d-flex">
+                    <div class="col-6">
+                        <label> VALOR PRESENTE</label><br><br>
+                        <label>INGRESE EL VALOR DE LA CUOTA (*)</label>
+                        <input id="valorcuota" class="form-control" type="number" pattern="[0-9]+">
+
+                        <label>INGRESE EL INTERES(*)</label>
+                        <input id="interes" class="form-control" type="number" pattern="[0-9]+">
+
+                        <label>INGRESE EL TIEMPO(*)</label>
+                        <input id="tiempo" class="form-control" type="number" pattern="[0-9]+"><br>
+
+                        <label>En caso de que necesite hallar el valor de la cuota:</label>
+                        <label class="form-label">Ingrese el VP</label>
+                        <input class="form-control" id="vp" type="number">
+
+                        <label class="form-label">Este es el valor:</label>
+                        <p class="form-label" id="ValorPresente"></p>
+
+                        <div class="col-12">
+                            <button type="button" class="btn btn-primary"
+                                onclick="calcularAnualidadPresente()">Calcular</button>
+                        </div>
+                    </div>
+                    <div class="col-6 ms-2">
+                        <label> VALOR FUTURO</label><br><br>
+                        <label>INGRESE EL VALOR DE LA CUOTA (*)</label>
+                        <input id="valorcuotaf" class="form-control" type="number" pattern="[0-9]+">
+
+                        <label>INGRESE EL INTERES(*)</label>
+                        <input id="interesf" class="form-control" type="number" pattern="[0-9]+">
+
+                        <label>INGRESE EL TIEMPO(*)</label>
+                        <input id="tiempof" class="form-control" type="number" pattern="[0-9]+"><br>
+
+                        <label>En caso de que necesite hallar el valor de la cuota:</label>
+                        <label class="form-label">Ingrese el VF</label>
+                        <input class="form-control" id="vf" type="number">
+
+                        <label class="form-label">Este es el valor:</label>
+                        <p class="form-label" id="ValorFuturo"></p>
+
+                        <div class="col-12">
+                            <button type="button" class="btn btn-primary"
+                                onclick="calcularAnualidadFuturo()">Calcular</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+
+</html>
