@@ -1,5 +1,4 @@
-import '../scss/styles.scss'
-import * as bootstrap from 'bootstrap'
+import './main.js';
 
 document.getElementById("calcu").onclick = function calcular(){
 

@@ -1,3 +1,5 @@
+import './main.js';
+
 function calcularInteresSimple() {
     var valorprestamo = document.getElementById("ValorPrestamo").value;
     var portentaje = document.getElementById("portentaje").value;

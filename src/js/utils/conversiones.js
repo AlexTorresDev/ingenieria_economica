@@ -1,4 +1,4 @@
-import * as interest from './tasa-interes.js';
+import * as inter from './tasa-interes.js';
 
 /**
  * Convierte la tasa de interes a decimales usando dependiendo de si está en `i` o en `j`
@@ -8,41 +8,25 @@ import * as interest from './tasa-interes.js';
  * @returns 
  */
 export const convertInterest = (modalidadPago, i, modalidadInteres) => {
-    let val = interest.interestJ.filter(k => k.name === modalidadInteres);
+    // Busca la modalidad de interes en la lista de j
+    let val = inter.interestJ.filter(k => k.name === modalidadInteres);
 
+    i /= 100;
+
+    // Si la modalidad de interes esta en j
     if (val.length > 0) {
-        i = (i / val[0].value) / 100;
+        i /= val[0].value;
     } else {
-        i /= 100;
+        // Busca la modalidad de interes en la lista de i
+        val = inter.interestI.filter(k => k.name === modalidadInteres);
     }
+    
+    const valueI = val[0].value;
 
-    if (val.length > 0 && modalidadPago != val[0].value) {
-        let n = 12;
-        let m = 12;
-
-        switch (modalidadPago) {
-            case "1":
-                // (1+i)^n = (1+i)^m
-                // (((1+i)^n)1/m) - 1 = i
-                m = 12;
-                break;
-            case "2":
-                m = 6
-                break;
-            case "3":
-                m = 4;
-                break;
-            case "4":
-                m = 3;
-                break;
-            case "6":
-                m = 2;
-                break;
-            case "12":
-                m = 1;
-                break;
-        }
-
+    // Valida si no están en el mismo periodo de tiempo el pago y el interes, si es asi, los convierte al mismo periodo de tiempo
+    if (modalidadPago != valueI) {
+        const n = valueI;
+        const m = parseInt(modalidadPago);
         let value = Math.pow((1 + i), n);
         i = Math.pow(value, 1 / m) - 1;
     }
