@@ -1,2 +1,29 @@
 // Import all of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container {
+  margin: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.custom-card {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.375rem;
+    margin: 0.5rem 0;
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+        color: black;
+        font-weight: 500;
+    }
+}
