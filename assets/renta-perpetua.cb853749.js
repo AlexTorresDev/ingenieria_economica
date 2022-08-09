@@ -1,0 +1,1 @@
+import"./main.722ffefe.js";const a=document.getElementById("RentaPerpetua");a.addEventListener("submit",function(e){e.preventDefault();const t=a.Valor.value,n=parseFloat(a.portentaje.value);r(t,n)});const r=(e,t)=>{const n=t/100,o=e/n;document.getElementById("resultado").innerHTML=o};
