@@ -10,7 +10,7 @@ export default () => {
           'main': path.resolve(__dirname, 'src/index.html'),
           'amortizacion-capitalizacion': path.resolve(__dirname, 'src/pages/amortizacion-capitalizacion.html'),
           'anticipada': path.resolve(__dirname, 'src/pages/anticipada.html'),
-          'anualidad-ordinaria-vencida': path.resolve(__dirname, 'src/pages/anualidad-ordinaria-vencida.html'),
+          'anualidad-anticipada': path.resolve(__dirname, 'src/pages/anualidad-anticipada.html'),
           'descuentos': path.resolve(__dirname, 'src/pages/descuentos.html'),
           'intereses': path.resolve(__dirname, 'src/pages/intereses.html'),
         },

@@ -20,7 +20,7 @@ export const convertInterest = (modalidadPago, i, modalidadInteres) => {
         // Busca la modalidad de interes en la lista de i
         val = inter.interestI.filter(k => k.name === modalidadInteres);
     }
-    
+
     const valueI = val[0].value;
 
     // Valida si no están en el mismo periodo de tiempo el pago y el interes, si es asi, los convierte al mismo periodo de tiempo
@@ -32,6 +32,39 @@ export const convertInterest = (modalidadPago, i, modalidadInteres) => {
     }
 
     return i;
+}
+
+export const convertInterestT = (i, o, d) => {
+    // Busca la modalidad de interes en la lista de j
+    let origen = inter.interestJ.filter(k => k.name === o);
+    let destino = inter.interestJ.filter(k => k.name === d);
+
+    i /= 100;
+
+    // Si la modalidad de interes esta en j
+    if (origen.length > 0) {
+        i /= origen[0].value;
+    } else {
+        // Busca la modalidad de interes en la lista de i
+        origen = inter.interestI.filter(k => k.name === o);
+    }
+
+    if (destino.length <= 0) {
+        destino = inter.interestI.filter(k => k.name === d);
+    }
+
+    // Valida si no están en el mismo periodo de tiempo el pago y el interes, si es asi, los convierte al mismo periodo de tiempo
+    if (origen[0].value != destino[0].value) {
+        const n = origen[0].value;
+        const m = destino[0].value;
+        let value = Math.pow((1 + i), n);
+        i = Math.pow(value, 1 / m) - 1;
+        i *= m;
+    }
+
+    i *= 100;
+
+    return i.toFixed(2);
 }
 
 /**
