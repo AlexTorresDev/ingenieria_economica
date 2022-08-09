@@ -1,3 +1,5 @@
+import './main.js';
+
 function calcularValorFuturo(){
     var ValorFuturo = document.getElementById("ValorFuturo").value;
     var ValorCuota = document.getElementById("ValorCuota").value;

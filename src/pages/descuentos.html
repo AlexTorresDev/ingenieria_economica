@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Descuentos</title>
+    <style>
+        * {
+            /* outline: 1px solid tomato; */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .formulario-C {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="formulario-C">
+        <div class="col-6 ms-2" style="width: 30%; margin-top: 10%;">
+            <div class="card-body">
+                <strong>Descuento simple</strong>
+                <p class="card-text">Ingrese los valores para calcular: </p>
+                <label class="form-label">Valor Liquido:</label>
+                <input class="form-control" type="number" id="valorLiquido" name="valorLiquido">
+                <label for="valorNominal">Valor Nominal:</label>
+                <input class="form-control" type="number" id="valorNominal" name="valorNominal">
+                <label for="porcentaje">Porcentaje:</label>
+                <input class="form-control" type="number" id="porcentaje" name="porcentaje">
+                <label for="dias">Dias:</label>
+                <input class="form-control" type="number" id="dias" name="dias">
+                <label for="resultado" class="form-label">Este es el valor: </label>
+                <p id="resultado"></p>
+                <div class="col-12">
+                    <button class="btn btn-primary" id="calcu" onclick="calcular()">Calcular</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../js/descuentos.js"></script>
+</body>
+
+</html>

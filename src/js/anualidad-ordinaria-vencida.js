@@ -1,3 +1,5 @@
+import './main.js';
+
 function calcularAnualidadFuturo() {
     //s
     var valorcuotaf = document.getElementById("valorcuotaf").value;
