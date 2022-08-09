@@ -14,6 +14,7 @@ export default () => {
           'descuentos': path.resolve(__dirname, 'src/pages/descuentos.html'),
           'intereses': path.resolve(__dirname, 'src/pages/intereses.html'),
           'conversiones': path.resolve(__dirname, 'src/pages/conversiones.html'),
+          'renta-perpetua': path.resolve(__dirname, 'src/pages/renta-perpetua.html'),
         },
         output: {
           dir: path.resolve(__dirname, 'dist'),
