@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anualidad anticipada</title>
+  <script type="module" crossorigin src="../assets/main.722ffefe.js"></script>
+  <link rel="stylesheet" href="../assets/main.d3741266.css">
+</head>
+
+<body>
+    <div class="container py-4 px-3 mx-auto">
+        <div class="card col-12">
+            <div class="card-body">
+                <h5 class="card-title">ANTICIPOS</h5>
+                <div class="col-6 ms-1">
+                    <strong>
+                        <a>Valor Futuro</a>
+                    </strong>
+                    <br><label class="form-label">Ingrese el Valor Futuro</label>
+                    <input id="ValorFuturo" class="form-control" type="number" pattern="[0-9]+">
+                    <br><label class="form-label">Ingrese el Valor Cuota</label>
+                    <input id="ValorCuota" class="form-control" type="number" pattern="[0-9]+">
+                    <br><label class="form-label">Ingrese cantidad de cuotas</label>
+                    <input id="CantidadCuotas" class="form-control" type="number" pattern="[0-9]+">
+                    <br><label class="form-label">Ingrese el interes</label>
+                    <input id="interes" class="form-control" type="number" pattern="[0-9]+">
+                    <br><label class="form-label">Ingrese el periodo de gracia</label>
+                    <input id="periodoDeGracia" class="form-control" type="number" pattern="[0-9]+">
+                    <br><button class="btn btn-primary" onclick="calcularValorFuturo()">Calcular Valor Futuro</button>
+                </div>
+                <div class="col-6 ms-2">
+                    <strong>
+                        <a>Valor Presente</a>
+                    </strong>
+                    <br><label class="form-label">Ingrese el Valor Presente</label>
+                    <input id="ValorPresente" class="form-control" type="number" pattern="[0-9]+">
+                    <br><label class="form-label">Ingrese el Valor Cuota</label>
+                    <input id="ValorCuotaP" class="form-control" type="number" pattern="[0-9]+">
+                    <br><label class="form-label">Ingrese cantidad de cuotas</label>
+                    <input id="CantidadCuotasP" class="form-control" type="number" pattern="[0-9]+">
+                    <br><label class="form-label">Ingrese el interes</label>
+                    <input id="interesP" class="form-control" type="number" pattern="[0-9]+">
+                    <br><label class="form-label">Ingrese el periodo de gracia</label>
+                    <input id="periodoDeGraciaP" class="form-control" type="number" pattern="[0-9]+">
+                    <br><button class="btn btn-primary" onclick="calcularValorPresente()">Calcular Valor
+                        Presente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>
