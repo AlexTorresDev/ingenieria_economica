@@ -9,7 +9,6 @@ function calcularAnualidadFuturo() {
         ValorFuturo(valorcuotaf, interesf, tiempof);
     }
     else if (valorcuotaf == 0 && vf != 0) {
-        console.log('entro');
         ValorCuotaFuturo(valorcuotaf, interesf, tiempof, vf);
     }
     else if (valorcuotaf < 0 || interesf < 0 || tiempof < 0 || vf < 0) {
@@ -33,7 +32,6 @@ function ValorFuturo(valorcuotaf, interesf, tiempof) {
 }
 
 function ValorCuotaFuturo(valorcuotaf, interesf, tiempof, vf) {
-    console.log(interesf, tiempof, vf)
     let inte = interesf / 100;
     var tasa = Math.pow((1 + inte), tiempof)
     let result = vf / ((tasa - 1) / inte);
@@ -79,7 +77,6 @@ function valorPresente(valorcuota, interes, tiempo) {
     var auxtime = -1 * tiempo;
     var tasa = Math.pow((1 + inte), auxtime)
     var result = valorcuota * ((1 - tasa) / inte)
-    //console.log('el valor presente es ', result);
     document.getElementById("ValorPresente").innerHTML = result;
 
 }
