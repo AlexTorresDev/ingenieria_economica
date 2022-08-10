@@ -38,7 +38,8 @@
                     </div>
                     <div class="col-md-6">
                         <label for="numero-pagos" class="form-label">Número de pagos</label>
-                        <input type="number" class="form-control" name="numeroPagos" id="numero-pagos" min="1" max="1000" required>
+                        <input type="number" class="form-control" name="numeroPagos" id="numero-pagos" min="1"
+                            max="1000" required>
                         <div class="invalid-feedback">
                             El número de pagos debe estar entre 1 y 1000.
                         </div>
@@ -61,8 +62,9 @@
                     <div class="col-6">
                         <label for="interes" class="form-label">Tasa de interés (En porcentaje)</label>
                         <div class="input-group">
-                            <input type="text" inputmode="numeric" class="form-control" id="interes" name="interes" min="1" max="100"
-                                pattern="(^100(\.0{1,2})?$)|(^([1-9]([0-9])?)(\.[0-9]{1,2})?$)" required>
+                            <input type="text" inputmode="numeric" class="form-control" id="interes" name="interes"
+                                min="1" max="100" pattern="(^100(\.0{1,2})?$)|(^([1-9]([0-9])?)(\.[0-9]{1,2})?$)"
+                                required>
                             <span class="input-group-text">%</span>
                             <div class="invalid-feedback">
                                 La tasa de interés no puede estar en blanco y debe estar entre 1 y 100 (Puede incluir
@@ -80,11 +82,11 @@
                             <option value="NC">Nominal Cuatrimestral</option>
                             <option value="NS">Nominal Semestral</option>
                             <option disabled>──────────</option>
-                            <option value="MV">Mensual Vencida</option>
-                            <option value="BV">Bimestral Vencida</option>
-                            <option value="TV">Trimestral Vencida</option>
-                            <option value="CV">Cuatrimestral Vencida</option>
-                            <option value="SV">Semestral Vencida</option>
+                            <option value="MV">Mes Vencido</option>
+                            <option value="BV">Bimestre Vencido</option>
+                            <option value="TV">Trimestre Vencido</option>
+                            <option value="CV">Cuatrimestre Vencido</option>
+                            <option value="SV">Semestre Vencido</option>
                             <option disabled>──────────</option>
                             <option value="CM">Convertible Mensual</option>
                             <option value="CS">Convertible Bimestral</option>
@@ -99,12 +101,12 @@
                             <option value="ES">Efectiva Semestral</option>
                             <option value="EA">Efectiva Anual</option>
                             <option disabled>──────────</option>
-                            <option value="PM">P Mensual</option>
-                            <option value="PB">P Bimestral</option>
-                            <option value="PT">P Trimestral</option>
-                            <option value="PC">P Cuatrimestral</option>
-                            <option value="PS">P Semestral</option>
-                            <option value="PA">P Anual</option>
+                            <option value="PM">Periódica Mensual</option>
+                            <option value="PB">Periódica Bimestral</option>
+                            <option value="PT">Periódica Trimestral</option>
+                            <option value="PC">Periódica Cuatrimestral</option>
+                            <option value="PS">Periódica Semestral</option>
+                            <option value="PA">Periódica Anual</option>
                         </select>
                         <div class="invalid-feedback">
                             Seleccione una opción válida.
@@ -115,7 +117,7 @@
                     </div>
                 </form>
 
-                <div id="datos-amortizacion" class="invisible mt-4" >
+                <div id="datos-amortizacion" class="invisible mt-4">
                     <hr />
                     <h3 id="title-tabla-amortizacion" class="mt-3">Tabla de
                         Amortización
@@ -125,19 +127,18 @@
                         <table id="tabla-amortizacion" class="table table-bordered text-center mt-3"></table>
                     </div>
                 </div>
-
             </div>
 
             <div class="tab-pane fade" id="nav-capitalizacion" role="tabpanel" tabindex="0">
                 <form id="formulario-capitalizacion" class="row g-3 mt-2 needs-validation" novalidate>
                     <div class="col-md-12">
-                        <label for="valorDeuda" class="form-label">Valor deuda</label>
+                        <label for="valorCapitalizable" class="form-label">Valor a capitalizar</label>
                         <div class="input-group">
                             <span class="input-group-text">$</span>
-                            <input type="number" class="form-control" id="valorDeuda" required>
+                            <input type="number" class="form-control" id="valorCapitalizable" required>
                             <span class="input-group-text">.00</span>
                             <div class="invalid-feedback">
-                                Ingrese un valor de deuda válido.
+                                Ingrese un valor a capitalizar válido.
                             </div>
                         </div>
                     </div>
@@ -196,9 +197,16 @@
                     </div>
                 </form>
 
-                <hr />
+                <div id="datos-capitalizacion" class="invisible mt-4">
+                    <hr />
+                    <h3 id="title-tabla-capitalizacion" class="mt-3">Tabla de
+                        Capitalización
+                    </h3>
 
-                <table id="tabla-capitalizacion" class="table text-center mt-5"></table>
+                    <div class="table-responsive">
+                        <table id="tabla-capitalizacion" class="table table-bordered text-center mt-3"></table>
+                    </div>
+                </div>
             </div>
         </div>
 

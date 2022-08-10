@@ -35,32 +35,46 @@ export const convertInterest = (modalidadPago, i, modalidadInteres) => {
 }
 
 export const convertInterestT = (i, o, d) => {
-    // Busca la modalidad de interes en la lista de j
-    let origen = inter.interestJ.filter(k => k.name === o);
-    let destino = inter.interestJ.filter(k => k.name === d);
+    let origen = inter.interestI.filter(k => k.name === o);
+    let destinoOriginal = inter.interestI.filter(k => k.name === d);
+    let destino = inter.interestI.filter(k => k.name === d);
 
     i /= 100;
 
-    // Si la modalidad de interes esta en j
-    if (origen.length > 0) {
+    // Valida si origen es j y destino es i
+    if (origen.length == 0 && destino.length > 0) {
+        origen = inter.interestJ.filter(k => k.name === o);
         i /= origen[0].value;
-    } else {
-        // Busca la modalidad de interes en la lista de i
-        origen = inter.interestI.filter(k => k.name === o);
+        console.log('Origen es j: ', origen[0], 'Destino es i: ', destino[0]);
     }
 
-    if (destino.length <= 0) {
-        destino = inter.interestI.filter(k => k.name === d);
+    if (origen.length == 0) {
+        origen = inter.interestJ.filter(k => k.name === o);
+        console.log('Origen es j: ', origen[0].value);
     }
 
-    // Valida si no están en el mismo periodo de tiempo el pago y el interes, si es asi, los convierte al mismo periodo de tiempo
+    if (destino.length == 0) {
+        destino = inter.interestJ.filter(k => k.name === d);
+        console.log('Destino es j: ', destino[0]);
+    }
+
+    // Valida si no están en el mismo periodo de tiempo el origen y el destino, si es asi, los convierte al mismo periodo de tiempo
     if (origen[0].value != destino[0].value) {
         const n = origen[0].value;
         const m = destino[0].value;
         let value = Math.pow((1 + i), n);
         i = Math.pow(value, 1 / m) - 1;
-        i *= m;
+        console.log('Conversión de tasas: ', origen[0]);
     }
+
+
+    // Valida si origen es i y destino es j
+    if (origen.length > 0 && destinoOriginal.length == 0) {
+        const destinoJ = inter.interestJ.filter(k => k.name === d);
+        i *= destinoJ[0].value;
+        console.log('Se convierte a j\nOrigen es i: ', origen[0], 'Destino es j: ', destino[0]);
+    }
+
 
     i *= 100;
 
@@ -76,6 +90,20 @@ export const convertInterestT = (i, o, d) => {
  */
 export const calculateFee = (p, i, n) => {
     let bottomPart = (1 - Math.pow(1 + i, (n * -1))) / i;
+    let a = p / bottomPart;
+
+    return parseFloat(a.toFixed(3));
+}
+
+/**
+ * Calcula la cuota usando la formula de valor presente
+ * @param {Es el valor de la deuda} p 
+ * @param {Es el interes en decimal} i 
+ * @param {Es el número de cuotas} n 
+ * @returns La cuota
+ */
+ export const calculateFeeFuture = (p, i, n) => {
+    let bottomPart = (Math.pow(1 + i, n) - 1) / i;
     let a = p / bottomPart;
 
     return parseFloat(a.toFixed(3));
